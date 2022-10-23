@@ -1,16 +1,13 @@
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-
+#ifndef CONTEXT_H_
+#define CONTEXT_H_
 
 
 typedef struct 
 {
     char caracteres [5];
 
-}context;
-
-
-
-void const_context(context * , const char *);
-void destru_context(context *);
+}contexto;
+contexto *context_new();
+void const_context(contexto * , const char *);
+void destru_context(contexto *);
+#endif 

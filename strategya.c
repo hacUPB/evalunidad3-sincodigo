@@ -14,7 +14,10 @@ void destru_strategya(strategya *this){
  {
     for (size_t i = 0; i < 5; i++)
     {
-        printf("%c" , caracteres[i]);
+        printf("%c\n" , caracteres[i]);
     }
     
+ }
+ strategya *strategya_new(){
+    return(strategya *)malloc(sizeof(strategya));
  }

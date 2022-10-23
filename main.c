@@ -6,20 +6,22 @@
 #include "strategyb.h"
 int main(int argc, char* argv[]) 
 {
-  context *context = context_new();
+  contexto *context = context_new();
   const_context(context, "a, b, c, d, e");
 
   strategya *strategya = strategya_new();
-  strategya_main(strategya, context->caracteres);
+  const_strategya(strategya , context->caracteres);
+  strategya_main(strategya, strategya->caracteres);
   
  strategyb *strategyb = strategyb_new();
- strategyb_main(strategyb, context->caracteres);
+ const_strategyb(strategyb , context->caracteres);
+  strategyb_main(strategyb, strategyb->caracteres);
 
- void destru_context(context);
+  destru_context(context);
  
- void destru_strategya(strategya);
+  destru_strategya(strategya);
  
- void destru_strategyb(strategyb);
+  destru_strategyb(strategyb);
 
 
   
