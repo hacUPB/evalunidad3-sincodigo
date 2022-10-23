@@ -1,14 +1,17 @@
 #ifndef STRATEGYA_H_
 #define STRATEGYA_H_
-#include "Istrategy.h"
 
-typedef struct strategya
+#include "context.h"
+
+typedef struct 
 {
-     Istrategy strategyA; 
+     char caracteres [5];
+     
 }strategya;
 
-strategya* new_strategya();
-void const_strategya(strategya *);
+
+void const_strategya(strategya *, const char *);
 void destru_strategya(strategya *);
+void strategya_main(strategya *, const char *);
 
 #endif
