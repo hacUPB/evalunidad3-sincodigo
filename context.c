@@ -4,18 +4,30 @@
 
 #include "context.h"
 
- void const_context(contexto *this , const char *caracteres) {
+void const_context(contexto *this, void *strategy)
+{
+  this->istrategy = (IStrategy *)strategy;
+  this->caracteres = (char *)malloc(5 * sizeof(char));
+  strcpy(this->caracteres, "abcde");
+}
 
-    this->caracteres[0] = 'a';
-   this->caracteres[1] = 'b';
-   this->caracteres[2] = 'c';
-   this->caracteres[3] = 'd';
-   this->caracteres[4] = 'e';
- }
- void destru_context(contexto *this){
-    free (this);
- }
+void set_strategy(contexto *this, void *strategy)
+{
+  this->istrategy = (IStrategy *)strategy;
+}
 
- contexto *context_new(){
-   return(contexto *)malloc(sizeof(contexto));
- }
+void destru_context(contexto *this)
+{
+  free(this->caracteres);
+  free(this);
+}
+
+void do_some_businessLogic(contexto *this)
+{
+  this->istrategy->strat_func(this->caracteres);
+}
+
+contexto *context_new()
+{
+  return (contexto *)malloc(sizeof(contexto));
+}

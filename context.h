@@ -1,13 +1,18 @@
 #ifndef CONTEXT_H_
 #define CONTEXT_H_
 
+#include "IStrategy.h"
 
-typedef struct 
+typedef struct
 {
-    char caracteres [5];
+    IStrategy *istrategy;
+    const char *caracteres;
 
-}contexto;
+} contexto;
+ 
 contexto *context_new();
-void const_context(contexto * , const char *);
+void const_context(contexto *this, void *);
+void set_strategy(contexto *this, void *);
+void do_some_businessLogic(contexto *);
 void destru_context(contexto *);
-#endif 
+#endif

@@ -2,24 +2,26 @@
 #include <stdlib.h>
 #include <string.h>
 #include "strategyb.h"
-#include "context.h"
 
-void const_strategyb(strategyb *this, const char *caracteres ){
-   strcpy(this->caracteres , caracteres);
-}
-void destru_strategyb(strategyb *this){
-    free (this);
-}
-void strategyb_main (strategyb *this, const char *caracteres )
- {
-    for (size_t i = 4; i >=0; i--)
+void __strat_func(void *this)
+{
+    IStrategy *istrategy = (IStrategy *)this;
+    for (size_t i = 4; i <= 0; i--)
     {
-        printf("%c\n" , caracteres[i]);
+        printf("%c\n", istrategy->strat_func);
     }
-}  
-strategyb *strategyb_new(){
-    return(strategyb *)malloc(sizeof(strategyb));
-} 
- 
-
-
+}
+strategyb *strategyb_new()
+{
+    return (strategyb *)malloc(sizeof(strategyb));
+}
+void const_strategyb(strategyb *this)
+{
+    const_IStrategy((IStrategy *)this);
+    this->istrategy.strat_func = __strat_func;
+}
+void destru_strategyb(strategyb *this)
+{
+    destru_IStrategy((IStrategy *)this);
+    free(this);
+}
