@@ -3,12 +3,13 @@
 #include <stdio.h>
 #include "IStrategy.h"
 
-void __strat_func(void *this)
+ void __strat_func(void *this)
 {
-    IStrategy *istrategy = (IStrategy *)this;
-    char* buffer=(char *)malloc(5 * sizeof(char));
+    //IStrategy *istrategy = (IStrategy *)this;
+    char* buffer=(char *)malloc(6 * sizeof(char));
     strcpy(buffer,"abcde");
     printf("%s:\n", buffer);
+    free(buffer);
 }
 
 IStrategy *IStrategy_new()
@@ -26,7 +27,7 @@ void destru_IStrategy(IStrategy *this)
     free(this);
 }
 
-void strat_func(IStrategy *this)
+ void strat_func(IStrategy *this)
 {
     this->strat_func(this);
 }

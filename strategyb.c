@@ -3,12 +3,15 @@
 #include <string.h>
 #include "strategyb.h"
 
-void __strat_func(void *this)
+
+
+ void __strat_func(void *this)
 {
-    IStrategy *istrategy = (IStrategy *)this;
+  
+     IStrategy *istrategy = (IStrategy *)this;
     for (size_t i = 4; i <= 0; i--)
     {
-        printf("%c\n", istrategy->strat_func);
+        printf("%s\n", istrategy->strat_func);
     }
 }
 strategyb *strategyb_new()

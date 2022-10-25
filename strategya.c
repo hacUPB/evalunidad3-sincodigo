@@ -5,11 +5,10 @@
 
 void __strat_func(void *this)
 {
-   char* buffer=(char *)malloc(5 * sizeof(char));
-   strcpy(buffer,(char *)this);
+  IStrategy *istrategy = (IStrategy *)this;
    for (size_t i = 0; i < 5; i++)
    {
-      printf("%c\n", buffer[i]);
+      printf("%d\n", istrategy->strat_func);
    }
 }
 strategya *strategya_new()
