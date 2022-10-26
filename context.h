@@ -5,9 +5,7 @@
 
 typedef struct
 {
-    IStrategy *istrategy;
-    const char *caracteres;
-
+    IStrategy *_strategy;
 } contexto;
  
 contexto *context_new();

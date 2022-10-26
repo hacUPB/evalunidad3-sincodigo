@@ -1,4 +1,4 @@
-OBJS = main.o strategya.o  strategyb.o context.o IStrategy.o
+OBJS = main.o IStrategy.o strategya.o strategyb.o context.o
 BINARY = Ejecutable
 CFLAGS = -g -Wall
 LDFLAGS = -lm
@@ -6,11 +6,10 @@ LDFLAGS = -lm
 Ejecutable: $(OBJS)
 	gcc -o $(BINARY) $(OBJS) $(CFLAGS) $(LDFLAGS)
  
-main.o: main.c  strategya.h  strategyb.h context.h IStrategy.h
-strategya.o:  strategya.c strategya.h context.h  IStrategy.h
-strategyb.o:  strategyb.c strategyb.h context.h  IStrategy.h
+main.o: main.c IStrategy.h strategya.h strategyb.h context.h
+strategya.o:  strategya.c IStrategy.h strategya.h
+strategyb.o:  strategyb.c IStrategy.h strategyb.h
 context.o: context.h
-IStrategy.o: IStrategy.c IStrategy.h
  
 clean:
 	rm -f $(BINARY) $(OBJS)

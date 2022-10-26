@@ -6,25 +6,25 @@
 
 void const_context(contexto *this, void *strategy)
 {
-  this->istrategy = (IStrategy *)strategy;
-  this->caracteres = (char *)malloc(5 * sizeof(char));
-  strcpy(this->caracteres, "abcde");
+  this->_strategy = (IStrategy *)strategy;
 }
 
 void set_strategy(contexto *this, void *strategy)
 {
-  this->istrategy = (IStrategy *)strategy;
+  this->_strategy = (IStrategy *)strategy;
 }
 
 void destru_context(contexto *this)
 {
-  free(this->caracteres);
   free(this);
 }
 
 void do_some_businessLogic(contexto *this)
 {
-  this->istrategy->strat_func(this->caracteres);
+  char* caracteres=(char*)malloc(6*sizeof(char));
+  strcpy(caracteres,"abcde");
+  this->_strategy->strat_func(caracteres);
+  free(caracteres);
 }
 
 contexto *context_new()

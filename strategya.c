@@ -3,12 +3,12 @@
 #include <string.h>
 #include "strategya.h"
 
-void __strat_func(void *this)
+void __strata_func(void *this)
 {
-  IStrategy *istrategy = (IStrategy *)this;
+   char* caracteres=(char*)this;
    for (size_t i = 0; i < 5; i++)
    {
-      printf("%d\n", istrategy->strat_func);
+      printf("%c\n", caracteres[i]);
    }
 }
 strategya *strategya_new()
@@ -17,11 +17,9 @@ strategya *strategya_new()
 }
 void const_strategya(strategya *this)
 {
-   const_IStrategy((IStrategy *)this);
-   this->istrategy.strat_func = __strat_func;
+   this->istrategy.strat_func = __strata_func;
 }
 void destru_strategya(strategya *this)
 {
-   destru_IStrategy((IStrategy *)this);
    free(this);
 }
