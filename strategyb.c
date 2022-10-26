@@ -6,10 +6,12 @@
 void __stratb_func(void *this)
 {
     char* caracteres=(char*)this;
-    for (size_t i = 4; i >= 0; i--)
+    for (size_t i = 4; i > 0; i--)
     {
-        printf("%c\n", caracteres[i]);
+        printf("%c", caracteres[i]);
     }
+    printf("%c",caracteres[0]);
+    printf("\n");
 }
 strategyb *strategyb_new()
 {

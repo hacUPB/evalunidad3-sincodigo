@@ -20,9 +20,13 @@ int main(int argc, char* argv[])
   contexto *context=context_new();
   const_context(context,strategya);
 
+  printf("Client: Strategy is set to normal sorting.\n");
+
   do_some_businessLogic(context);
 
   set_strategy(context,strategyb);
+
+  printf("Client: Strategy is set to reverse sorting.\n");
 
   do_some_businessLogic(context);
  

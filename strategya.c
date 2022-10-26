@@ -8,8 +8,9 @@ void __strata_func(void *this)
    char* caracteres=(char*)this;
    for (size_t i = 0; i < 5; i++)
    {
-      printf("%c\n", caracteres[i]);
+      printf("%c", caracteres[i]);
    }
+   printf("\n");
 }
 strategya *strategya_new()
 {

@@ -21,6 +21,7 @@ void destru_context(contexto *this)
 
 void do_some_businessLogic(contexto *this)
 {
+  printf("Context: Sorting data using the strategy (not sure how it'll do it)\n");
   char* caracteres=(char*)malloc(6*sizeof(char));
   strcpy(caracteres,"abcde");
   this->_strategy->strat_func(caracteres);
