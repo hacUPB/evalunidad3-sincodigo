@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "istrategy.h": "c",
+        "stdlib.h": "c",
+        "context.h": "c"
+    }
+}
